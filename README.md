@@ -11,7 +11,7 @@ A personal portfolio highlighting my software quality assurance experience, test
 
 ## Portfolio pages
 
-- `/` — Home and selected work
+- `/` — Redirects to About
 - `/about/` — Professional summary, experience, education, and certification
 - `/projects/` — Web and mobile project experience
 - `/skills/` — Testing methods, automation, tools, and ways of working
