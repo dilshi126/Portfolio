@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const webProjects = [
+  {
+    id: 'mywin',
+    name: 'MyWin',
+    type: 'Lottery buying and selling platform',
+    summary:
+      'Led full manual testing as the primary QA engineer, covering core features and end-to-end purchase and transaction workflows.',
+    contributions: [
+      'Designed and executed test cases for critical user flows.',
+      'Automated repetitive and regression scenarios with Playwright and TypeScript.',
+      'Tracked and managed defects in Jira.',
+    ],
+    tools: ['Manual testing', 'Playwright', 'TypeScript', 'Jira'],
+    outcome: 'Zero critical bugs in the production release',
+  },
+  {
+    id: 'worklenz',
+    name: 'Worklenz',
+    type: 'Project management tool',
+    summary:
+      'Tested system modules against user workflows and business requirements, combining hands-on checks with browser automation.',
+    contributions: [
+      'Conducted manual testing across system modules.',
+      'Created test cases aligned with user workflows and requirements.',
+      'Developed automation scripts with Selenium and Python and Playwright with TypeScript.',
+      'Reported defects with structured details to support debugging.',
+    ],
+    tools: ['Manual testing', 'Selenium', 'Python', 'Playwright', 'TypeScript'],
+    outcome: 'Functional and automation testing across system modules',
+  },
+];
+
+const mobileProjects = [
+  {
+    id: 'ludo-crush',
+    name: 'Ludo Crush',
+    type: 'Telegram-based mobile game',
+    summary:
+      'Tested gameplay and player interactions with a focus on edge cases, stability, and the overall user experience.',
+    contributions: [
+      'Performed manual checks of gameplay features and user interactions.',
+      'Explored edge-case scenarios.',
+      'Identified and reported defects to improve game stability and user experience.',
+    ],
+    tools: ['Mobile application testing', 'Manual testing', 'Exploratory testing'],
+    outcome: 'Gameplay, interaction, and edge-case testing',
+  },
+];
+---
+
+<BaseLayout
+  title="Projects | Dilshi Piyumika"
+  description="Explore Dilshi Piyumika's web and mobile QA project experience, testing contributions, and tools."
+  active="projects"
+>
+  <main>
+    <section class="page-hero">
+      <div class="section-wrap">
+        <p class="eyebrow"><span>PROJECTS</span> · WEB & MOBILE QUALITY</p>
+        <h1>Testing real journeys.<br /><span>Supporting better releases.</span></h1>
+        <p>
+          A selection of web and mobile projects where I contributed through test design,
+          hands-on testing, automation, and clear defect reporting.
+        </p>
+        <nav class="category-nav" aria-label="Project categories">
+          <a href="#web">Web projects <span>02</span></a>
+          <a href="#mobile">Mobile projects <span>01</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section-wrap project-section" id="web">
+      <div class="section-kicker"><span>01</span><span>WEB APPLICATIONS</span></div>
+      <h2>Web projects<span>.</span></h2>
+      <div class="project-list">
+        {webProjects.map((project, index) => (
+          <article class="project-card" id={project.id}>
+            <div class="project-heading">
+              <span class="project-index">0{index + 1}</span>
+              <div>
+                <p class="project-type">{project.type}</p>
+                <h3>{project.name}</h3>
+              </div>
+            </div>
+            <div class="project-detail">
+              <p class="summary">{project.summary}</p>
+              <div>
+                <h4>My contribution</h4>
+                <ul>
+                  {project.contributions.map((contribution) => <li>{contribution}</li>)}
+                </ul>
+              </div>
+              <div class="project-meta">
+                <div>
+                  <h4>Tools & methods</h4>
+                  <ul class="tag-list">
+                    {project.tools.map((tool) => <li>{tool}</li>)}
+                  </ul>
+                </div>
+                <p class="outcome"><span aria-hidden="true">↳</span>{project.outcome}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mobile-section" id="mobile">
+      <div class="section-wrap project-section">
+        <div class="section-kicker"><span>02</span><span>MOBILE & GAME TESTING</span></div>
+        <h2>Mobile projects<span>.</span></h2>
+        <div class="project-list">
+          {mobileProjects.map((project) => (
+            <article class="project-card" id={project.id}>
+              <div class="project-heading">
+                <span class="project-index">03</span>
+                <div>
+                  <p class="project-type">{project.type}</p>
+                  <h3>{project.name}</h3>
+                </div>
+              </div>
+              <div class="project-detail">
+                <p class="summary">{project.summary}</p>
+                <div>
+                  <h4>My contribution</h4>
+                  <ul>
+                    {project.contributions.map((contribution) => <li>{contribution}</li>)}
+                  </ul>
+                </div>
+                <div class="project-meta">
+                  <div>
+                    <h4>Tools & methods</h4>
+                    <ul class="tag-list">
+                      {project.tools.map((tool) => <li>{tool}</li>)}
+                    </ul>
+                  </div>
+                  <p class="outcome"><span aria-hidden="true">↳</span>{project.outcome}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <p class="privacy-note section-wrap">
+      Project descriptions are intentionally high-level and based on my experience. Confidential
+      product data, screenshots, and employer-owned test materials are not included.
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  .section-wrap {
+    width: min(1120px, calc(100% - 3rem));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: clamp(4.5rem, 9vw, 7rem) 0;
+    color: #f7faf6;
+    background:
+      radial-gradient(ellipse at 86% 20%, rgb(91 126 86 / 20%), transparent 32%),
+      #111d2a;
+  }
+
+  .eyebrow,
+  .section-kicker,
+  .project-index {
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.5rem;
+    color: #b6c1ca;
+  }
+
+  .eyebrow span {
+    color: #c9ef81;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.06em;
+    line-height: 1.1;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.8rem, 6.5vw, 5rem);
+    font-weight: 650;
+  }
+
+  h1 span {
+    color: #c9ef81;
+  }
+
+  .page-hero > .section-wrap > p:not(.eyebrow) {
+    max-width: 660px;
+    margin: 1.4rem 0 0;
+    color: #c1cad1;
+  }
+
+  .category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .category-nav a {
+    display: inline-flex;
+    gap: 0.8rem;
+    align-items: center;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid #53606d;
+    border-radius: 99px;
+    color: #f7faf6;
+    font-size: 0.78rem;
+    text-decoration: none;
+  }
+
+  .category-nav a span {
+    color: #c9ef81;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.65rem;
+  }
+
+  .project-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .section-kicker {
+    display: flex;
+    gap: 0.75rem;
+    color: #718078;
+  }
+
+  .section-kicker span:first-child {
+    color: #567d2a;
+  }
+
+  h2 {
+    margin: 1rem 0 2rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 620;
+  }
+
+  h2 > span {
+    color: #8fbb51;
+  }
+
+  .project-list {
+    border-top: 1px solid #dce3dc;
+  }
+
+  .project-card {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
+    gap: 3rem;
+    padding: 2.2rem 0;
+    border-bottom: 1px solid #dce3dc;
+    scroll-margin-top: 2rem;
+  }
+
+  .project-heading {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 0.9rem;
+    align-content: start;
+  }
+
+  .project-index {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border-radius: 50%;
+    background: #e9f1e1;
+    color: #567d2a;
+    font-size: 0.65rem;
+  }
+
+  .project-type {
+    margin: 0 0 0.35rem;
+    color: #6c7970;
+    font-size: 0.75rem;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 650;
+  }
+
+  .project-detail {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .summary {
+    margin: 0;
+    color: #59665f;
+    font-size: 0.9rem;
+  }
+
+  h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 750;
+  }
+
+  .project-detail > div > ul:not(.tag-list) {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+    padding-left: 1.1rem;
+    color: #59665f;
+    font-size: 0.8rem;
+  }
+
+  .project-detail li::marker {
+    color: #75a43f;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8e1;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tag-list li {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #e0e6df;
+    border-radius: 99px;
+    color: #48564d;
+    font-size: 0.65rem;
+  }
+
+  .outcome {
+    margin: 0;
+    color: #456b20;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .outcome span {
+    padding-right: 0.4rem;
+  }
+
+  .mobile-section {
+    background: #e9eee9;
+  }
+
+  .mobile-section .project-list {
+    border-color: #d2dbd2;
+  }
+
+  .mobile-section .project-card {
+    border-color: #d2dbd2;
+  }
+
+  .privacy-note {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    color: #718078;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 680px) {
+    .section-wrap {
+      width: min(100% - 2.4rem, 540px);
+    }
+
+    .project-section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .project-card {
+      grid-template-columns: 1fr;
+      gap: 1.3rem;
+    }
+
+    .privacy-note {
+      padding-bottom: 2.5rem;
+    }
+  }
+</style>

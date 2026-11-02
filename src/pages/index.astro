@@ -1,36 +1,41 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
 const email = 'dilshipiyumika@gmail.com';
 
 const projects = [
   {
     number: '01',
     name: 'MyWin',
-    type: 'Lottery buying and selling platform',
+    type: 'WEB · Lottery buying and selling platform',
     summary:
       'Led end-to-end manual testing across core purchase and transaction workflows, then automated repetitive regression scenarios.',
     tools: ['Playwright', 'TypeScript', 'Jira'],
     outcome: 'Zero critical bugs in the production release',
     tone: 'mint',
+    href: '/projects/#mywin',
   },
   {
     number: '02',
     name: 'Worklenz',
-    type: 'Project management tool',
+    type: 'WEB · Project management tool',
     summary:
       'Validated system modules against user workflows and business requirements, combining exploratory testing with browser automation.',
     tools: ['Playwright', 'Selenium', 'Python'],
     outcome: 'Web application · Manual and automated testing',
     tone: 'blue',
+    href: '/projects/#worklenz',
   },
   {
     number: '03',
     name: 'Ludo Crush',
-    type: 'Telegram-based mobile game',
+    type: 'MOBILE · Telegram-based game',
     summary:
       'Tested gameplay, user interactions, and edge cases to help improve game stability and the overall player experience.',
     tools: ['Mobile testing', 'Exploratory testing'],
     outcome: 'Mobile game · Functional and edge-case coverage',
     tone: 'peach',
+    href: '/projects/#ludo-crush',
   },
 ];
 
@@ -78,31 +83,8 @@ const skillGroups = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Dilshi Piyumika is a Software Quality Assurance Engineer focused on thoughtful testing, Playwright automation, and quality delivery." />
-    <meta name="theme-color" content="#111d2a" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Dilshi Piyumika | QA Engineer</title>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="wordmark" href="#home" aria-label="Dilshi Piyumika, home">
-        <span class="wordmark-mark" aria-hidden="true">D</span>
-        <span>DILSHI PIYUMIKA</span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="#work">Selected work</a>
-        <a href="#experience">Experience</a>
-        <a href="#about">About</a>
-        <a class="nav-contact" href={`mailto:${email}`}>Get in touch <span aria-hidden="true">↗</span></a>
-      </nav>
-    </header>
-
-    <main>
+<BaseLayout>
+  <main>
       <section class="hero" id="home">
         <div class="hero-inner">
           <div class="hero-copy">
@@ -171,7 +153,7 @@ const skillGroups = [
                 <span class="project-arrow" aria-hidden="true">↗</span>
               </div>
               <p class="project-type">{project.type}</p>
-              <h3>{project.name}</h3>
+              <h3><a href={project.href}>{project.name}<span aria-hidden="true"> ↗</span></a></h3>
               <p class="project-summary">{project.summary}</p>
               <ul class="tag-list" aria-label={`${project.name} tools and methods`}>
                 {project.tools.map((tool) => <li>{tool}</li>)}
@@ -267,117 +249,10 @@ const skillGroups = [
           </a>
         </div>
       </section>
-    </main>
-
-    <footer class="site-footer">
-      <a class="wordmark footer-wordmark" href="#home">
-        <span class="wordmark-mark" aria-hidden="true">D</span>
-        <span>DILSHI PIYUMIKA</span>
-      </a>
-      <p>Thoughtful testing. Better releases.</p>
-      <a href="#home">Back to top ↑</a>
-      <span class="copyright">© {new Date().getFullYear()} Dilshi Piyumika</span>
-    </footer>
-  </body>
-</html>
+  </main>
+</BaseLayout>
 
 <style>
-  :global(*) {
-    box-sizing: border-box;
-  }
-
-  :global(html) {
-    scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
-  }
-
-  :global(body) {
-    margin: 0;
-    color: #172433;
-    background: #f5f7f5;
-    font-family: Inter, "Segoe UI", sans-serif;
-    font-size: 16px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  :global(a) {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  :global(a:focus-visible) {
-    outline: 3px solid #82b73b;
-    outline-offset: 4px;
-  }
-
-  :global(::selection) {
-    color: #111d2a;
-    background: #c9ef81;
-  }
-
-  .site-header {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    min-height: 76px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 clamp(1.25rem, 6vw, 6rem);
-    background: #fff;
-  }
-
-  .wordmark {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-size: 0.73rem;
-    font-weight: 800;
-    letter-spacing: 0.13em;
-  }
-
-  .wordmark-mark {
-    display: grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border-radius: 50%;
-    background: #c9ef81;
-    color: #172433;
-    font-size: 0.95rem;
-    letter-spacing: 0;
-  }
-
-  .site-header nav {
-    display: flex;
-    align-items: center;
-    gap: clamp(1rem, 3vw, 2.5rem);
-    color: #5c6872;
-    font-size: 0.82rem;
-  }
-
-  .site-header nav a,
-  .site-footer a {
-    transition: color 160ms ease;
-  }
-
-  .site-header nav a:hover,
-  .site-footer a:hover {
-    color: #507a22;
-  }
-
-  .site-header nav .nav-contact {
-    padding: 0.58rem 0.9rem;
-    border: 1px solid #dfe5df;
-    border-radius: 99px;
-    color: #172433;
-    font-weight: 700;
-  }
-
-  .nav-contact span {
-    padding-left: 0.3rem;
-  }
-
   .hero {
     position: relative;
     overflow: hidden;
@@ -939,31 +814,6 @@ const skillGroups = [
     flex: 0 0 auto;
   }
 
-  .site-footer {
-    display: flex;
-    min-height: 82px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem clamp(1.25rem, 6vw, 6rem);
-    border-top: 1px solid #e2e7e1;
-    background: #fff;
-    color: #64716a;
-    font-size: 0.72rem;
-  }
-
-  .footer-wordmark {
-    color: #172433;
-  }
-
-  .site-footer p {
-    margin: 0;
-  }
-
-  .copyright {
-    color: #7f8981;
-  }
-
   @media (max-width: 900px) {
     .hero-inner {
       grid-template-columns: minmax(0, 1.2fr) minmax(230px, 0.8fr);
@@ -989,30 +839,6 @@ const skillGroups = [
   }
 
   @media (max-width: 680px) {
-    .site-header {
-      min-height: 68px;
-      padding: 0 1.2rem;
-    }
-
-    .site-header nav {
-      gap: 0.8rem;
-      font-size: 0.71rem;
-    }
-
-    .site-header nav a:nth-child(2),
-    .site-header nav a:nth-child(3) {
-      display: none;
-    }
-
-    .site-header nav .nav-contact {
-      padding: 0.45rem 0.7rem;
-    }
-
-    .wordmark {
-      gap: 0.5rem;
-      font-size: 0.64rem;
-    }
-
     .hero-inner {
       width: min(100% - 2.4rem, 540px);
       grid-template-columns: 1fr;
@@ -1119,43 +945,15 @@ const skillGroups = [
       margin-top: 1.5rem;
     }
 
-    .site-footer {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      padding: 1.2rem;
-    }
-
-    .site-footer p {
-      grid-column: 1;
-      grid-row: 2;
-    }
-
-    .site-footer > a:nth-of-type(2) {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
-    .copyright {
-      grid-column: 2;
-      grid-row: 2;
-    }
   }
 
   @media (max-width: 420px) {
-    .site-header nav a:first-child {
-      display: none;
-    }
-
     .skill-grid {
       grid-template-columns: 1fr;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    :global(html) {
-      scroll-behavior: auto;
-    }
-
     *,
     *::before,
     *::after {

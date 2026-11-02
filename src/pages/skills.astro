@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const groups = [
+  {
+    number: '01',
+    title: 'Software testing',
+    intro: 'Testing techniques and activities across web and mobile products.',
+    skills: [
+      'Manual testing',
+      'Functional testing',
+      'Regression testing',
+      'Integration testing',
+      'System testing',
+      'User acceptance testing (UAT)',
+      'Exploratory testing',
+      'Test case design and execution',
+      'Web and mobile application testing',
+    ],
+  },
+  {
+    number: '02',
+    title: 'Test automation',
+    intro: 'Automation tools and approaches for UI checks and repeatable coverage.',
+    skills: [
+      'Playwright with TypeScript',
+      'Selenium WebDriver with Python',
+      'PyTest',
+      'Page Object Model (POM)',
+      'UI automation',
+      'Cross-browser automation',
+      'Appium with Java',
+    ],
+  },
+  {
+    number: '03',
+    title: 'API & database testing',
+    intro: 'Validating service behavior and checking data at a basic level.',
+    skills: ['Postman', 'REST API testing', 'SQL', 'Basic database testing'],
+  },
+  {
+    number: '04',
+    title: 'Test management',
+    intro: 'Organizing test work, communicating defects, and supporting delivery.',
+    skills: ['Jira', 'Xray', 'Test management', 'Bug tracking', 'UAT coordination'],
+  },
+  {
+    number: '05',
+    title: 'Programming & web',
+    intro: 'Languages and foundations used in testing and automation.',
+    skills: ['TypeScript', 'Python', 'HTML', 'CSS', 'Basic Java', 'SQL'],
+  },
+  {
+    number: '06',
+    title: 'Tools & ways of working',
+    intro: 'Team collaboration and development tools in an Agile lifecycle.',
+    skills: [
+      'Git and GitHub',
+      'Visual Studio Code',
+      'PyCharm',
+      'WordPress (basic)',
+      'SDLC and STLC',
+      'Agile and Scrum',
+      'Sprint planning and daily stand-ups',
+      'Defect life cycle',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Skills | Dilshi Piyumika"
+  description="A categorized overview of Dilshi Piyumika's software testing, automation, API, database, and collaboration skills."
+  active="skills"
+>
+  <main>
+    <section class="page-hero">
+      <div class="section-wrap">
+        <p class="eyebrow"><span>SKILLS & TOOLS</span> · QUALITY THROUGH THE LIFECYCLE</p>
+        <h1>Methods, tools,<br /><span>and a tester’s mindset.</span></h1>
+        <p>
+          A practical toolkit spanning manual and automated testing, API and database checks,
+          test management, and Agile teamwork.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-wrap skills-section">
+      <div class="section-kicker"><span>01</span><span>MY TOOLKIT</span></div>
+      <div class="skills-grid">
+        {groups.map((group) => (
+          <article class="skill-card">
+            <span class="skill-number">{group.number}</span>
+            <h2>{group.title}</h2>
+            <p class="intro">{group.intro}</p>
+            <ul class="skill-list">
+              {group.skills.map((skill) => <li>{skill}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="approach-section">
+      <div class="section-wrap approach-inner">
+        <div>
+          <div class="section-kicker"><span>02</span><span>HOW I WORK</span></div>
+          <h2>Quality is a team effort.</h2>
+        </div>
+        <p>
+          I work with developers, designers, and stakeholders to clarify requirements, surface
+          risks, communicate defects, and keep testing connected to the team’s delivery process.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .section-wrap {
+    width: min(1120px, calc(100% - 3rem));
+    margin: 0 auto;
+  }
+
+  .page-hero {
+    padding: clamp(4.5rem, 9vw, 7rem) 0;
+    color: #f7faf6;
+    background:
+      radial-gradient(ellipse at 86% 20%, rgb(91 126 86 / 20%), transparent 32%),
+      #111d2a;
+  }
+
+  .eyebrow,
+  .section-kicker,
+  .skill-number {
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.5rem;
+    color: #b6c1ca;
+  }
+
+  .eyebrow span {
+    color: #c9ef81;
+  }
+
+  h1,
+  h2 {
+    letter-spacing: -0.06em;
+    line-height: 1.1;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.8rem, 6.5vw, 5rem);
+    font-weight: 650;
+  }
+
+  h1 span {
+    color: #c9ef81;
+  }
+
+  .page-hero > .section-wrap > p:not(.eyebrow) {
+    max-width: 660px;
+    margin: 1.4rem 0 0;
+    color: #c1cad1;
+  }
+
+  .skills-section {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  .section-kicker {
+    display: flex;
+    gap: 0.75rem;
+    color: #718078;
+  }
+
+  .section-kicker span:first-child {
+    color: #567d2a;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.8rem;
+  }
+
+  .skill-card {
+    padding: 1.4rem;
+    border: 1px solid #e2e8e1;
+    border-radius: 0.8rem;
+    background: #fff;
+  }
+
+  .skill-number {
+    color: #648d37;
+    font-size: 0.62rem;
+  }
+
+  .skill-card h2 {
+    margin: 0.5rem 0 0.35rem;
+    font-size: 1.35rem;
+    font-weight: 680;
+  }
+
+  .intro {
+    margin: 0;
+    color: #65716a;
+    font-size: 0.82rem;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .skill-list li {
+    padding: 0.38rem 0.65rem;
+    border: 1px solid #e2e8e1;
+    border-radius: 99px;
+    color: #45554a;
+    font-size: 0.7rem;
+  }
+
+  .approach-section {
+    padding: 4.5rem 0;
+    background: #e9eee9;
+  }
+
+  .approach-inner {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .approach-inner h2 {
+    margin: 1rem 0 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 620;
+  }
+
+  .approach-inner > p {
+    margin: 0;
+    color: #59665f;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 680px) {
+    .section-wrap {
+      width: min(100% - 2.4rem, 540px);
+    }
+
+    .skills-section {
+      padding-top: 4rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .skills-grid,
+    .approach-inner {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+
+    .approach-section {
+      padding: 3.5rem 0;
+    }
+  }
+</style>
